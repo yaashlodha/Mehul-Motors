@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEHUL MOTORS</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="top-bar">
+        Working hours: Monday–Saturday : 9am–8:30pm, Sunday : 9am-2pm | +91 78240 40400
+    </div>
+
+    <nav>
+        <div class="logo"><img src="Resources/Company Logo/Company-Logo.jpeg"> MEHUL MOTORS</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>  
+            <li><a href="about.html">About</a></li>
+            <li><a href=contact.html>Contact</a></li>
+        </ul>
+        <div class="contact-btn"><a href="contact.html">Contact</a></div>
+    </nav>
+
+    <!-- ABOUT -->
+    <section class="section">
+        <h2>About Mehul Motors</h2>
+        <p>
+            Welcome to Mehul Motors, the premier two-wheeler showroom located on Triplicane High Road, Chennai.
+            We specialize in providing the best deals in two-wheelers, offering a vast selection of motorcycles
+            and scooters to fit every rider’s needs. Our knowledgeable team is dedicated to assisting you in
+            finding the perfect two-wheeler that suits your lifestyle and budget.
+        </p>
+    </section>
+
+    <!-- GALLERY -->
+    <h2 class="gallery-title">Gallery</h2>
+<div class="gallery-grid" id="gallery"></div>
+
+<script>
+    const gallery = document.getElementById("gallery");
+    const folder = "Resources/Photos-Index/";
+    
+    // Change this to your number of images
+    const imageCount = 12; 
+
+    for (let i = 1; i <= imageCount; i++) {
+        const div = document.createElement("div");
+        div.className = "gallery-item";
+
+        const img = document.createElement("img");
+        img.src = `${folder}Photo-Index-${i}.jpeg`;
+        img.alt = `Gallery Image ${i}`;
+
+        div.appendChild(img);
+        gallery.appendChild(div);
+    }
+</script>
+
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-13c93c5a-0559-450e-b248-5717dcccf679" data-elfsight-app-lazy></div>
+        <div class="trust-badge">🔶 Trusted by our customers</div>
+        <h2>Proven Success in Numbers</h2>
+
+        <div class="stats-cards">
+            <div class="card">
+                <div class="value">5.0 ⭐</div>
+                <div class="subtext">10 Customer Reviews</div>
+            </div>
+
+            <div class="card">
+                <div class="value">300+</div>
+                <div class="subtext">Happy Customers</div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+
+            <div>
+                <h3>MEHUL MOTORS</h3>
+                <p>
+                    Welcome to Mehul Motors, the premier two-wheeler showroom located on
+                    Triplicane High Road, Chennai.
+                </p>
+            </div>
+
+            <div  class="footer-grid-link">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href=contact.html>Contact</a></li>
+                    <li><a href="privacy-policy.html"> Policy</a></li>
+                </ul>
+            </div  class="footer-grid-link">
+
+            <div>
+                <h3>Contact us</h3>
+                <p>
+                    New No. 267, Old No 135, Triplicane High Road,
+                    Chennai - 600005  
+                    <br>+91 78240 40400
+                </p>
+
+                
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6749636812933!2d80.26912347794868!3d13.056349554435265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267e44dcdbd07%3A0x6a793d666cd2cb3!2sMEHUL%20MOTORS!5e0!3m2!1sen!2sin!4v1764754006978!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="copyright">
+            Copyright ©2025 MEHUL MOTORS.
+        </div>
+    </footer>
+
+</body>
+</html>
