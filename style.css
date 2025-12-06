@@ -478,14 +478,19 @@ nav ul li a:active {
 /* MOBILE: Show only first 4 logos, vertical list */
 /* MOBILE: show only first 4 logos */
 @media (max-width: 600px) {
-  /* hide all logos first */
+
+  /* Hide everything first */
   .logo-grid img {
     display: none;
   }
 
-  /* show only the first 4 */
+  /* Show only first 4 logos */
   .logo-grid img:nth-child(-n + 4) {
     display: block;
   }
-}
 
+  /* Always show the LAST image */
+  .logo-grid img:last-child {
+    display: block;
+  }
+}
