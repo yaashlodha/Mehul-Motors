@@ -155,7 +155,7 @@
     display: none;
   }
 
-  .gallery-item:nth-child(-n + 3) {
+  .gallery-item:nth-child(-n + 4) {
     display: block;
   }
 }
@@ -450,46 +450,42 @@ nav ul li a:active {
 }
 
 /* LOGO GRID SECTION */
+/* LOGO GRID SECTION – desktop & tablet */
 .logo-grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 logos in a row */
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
   justify-items: center;
-  margin: 40px 0;
 }
 
+/* Each logo as a small card (like gallery) */
 .logo-grid img {
-  width: 150px;      /* fixed width */
-  height: 100px;     /* fixed height */
-  object-fit: contain; /* keeps aspect ratio without stretching */
-  padding: 10px;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;      /* logos shouldn’t be cropped */
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  display: block;
+  padding: 12px;
 }
+
 /* Show only first 4 logos on mobile */
 /* MOBILE: Show only first 4 logos, vertical list */
+/* MOBILE: show only first 4 logos */
 @media (max-width: 600px) {
-
-  /* Hide all logos */
+  /* hide all logos first */
   .logo-grid img {
     display: none;
   }
 
-  /* Show only the first 4 */
+  /* show only the first 4 */
   .logo-grid img:nth-child(-n + 4) {
     display: block;
   }
-
-  /* Make them stack vertically */
-  .logo-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;               /* spacing between logos */
-    justify-content: flex-start;
-    align-items: center;     /* center each logo */
-  }
-
-  /* Optional: make logos smaller for mobile */
-  .logo-grid img {
-    width: 120px;
-    height: auto;
-  }
 }
+
