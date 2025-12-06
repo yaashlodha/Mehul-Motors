@@ -74,40 +74,91 @@
         }
 
         /* GALLERY */
-        .gallery-title {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+      /* ---------- Responsive Gallery (drop-in replacement) ---------- */
 
-        .gallery-grid {
-        max-width: 12000px;
-        margin: 40px auto;
-        padding: 0 20px;
+.gallery-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
 
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-        }
+/* container */
+.gallery-grid {
+  max-width: 1200px;         /* NOTE: fixed typo from 12000px */
+  margin: 40px auto;
+  padding: 0 20px;
 
-        /* Each card */
-        .gallery-item {
-        width: 300px;
-        border-radius: 14px;
-        overflow: hidden;
-        background: #fff;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* responsive */
+  gap: 30px;
+  align-items: stretch;
+}
 
-        /* Image itself */
-        .gallery-item img {
-        width: 100%;
-        aspect-ratio: 4 / 3;     /* perfect for showroom photos */
-        object-fit: cover;
-        display: block;
-        }
+/* card wrapper - no fixed width here */
+.gallery-item {
+  position: relative;      /* used by the aspect-ratio fallback */
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  min-height: 0;           /* prevents collapse in some browsers */
+}
+
+/* pseudo-element keeps consistent card ratio in browsers that don't support aspect-ratio */
+.gallery-item::before {
+  content: "";
+  display: block;
+  padding-top: 75%;        /* 4:3 ratio -> 75% */
+  visibility: hidden;
+}
+
+/* image fills the card area */
+.gallery-item img {
+  position: absolute;      /* fill the pseudo-element space */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;       /* crop to fill without distortion */
+  object-position: center;
+  border-radius: 0;        /* keep card rounded, not image circular */
+}
+
+/* hover / focus */
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+}
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .gallery-grid {
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .gallery-item::before { padding-top: 72%; }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .gallery-item::before { padding-top: 90%; } /* portrait-friendly on tiny screens */
+}
+@media (max-width: 600px) {
+
+  .gallery-item {
+    display: none;
+  }
+
+  .gallery-item:nth-child(-n + 3) {
+    display: block;
+  }
+}
 
 
 
@@ -412,4 +463,33 @@ nav ul li a:active {
   height: 100px;     /* fixed height */
   object-fit: contain; /* keeps aspect ratio without stretching */
   padding: 10px;
+}
+/* Show only first 4 logos on mobile */
+/* MOBILE: Show only first 4 logos, vertical list */
+@media (max-width: 600px) {
+
+  /* Hide all logos */
+  .logo-grid img {
+    display: none;
+  }
+
+  /* Show only the first 4 */
+  .logo-grid img:nth-child(-n + 4) {
+    display: block;
+  }
+
+  /* Make them stack vertically */
+  .logo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;               /* spacing between logos */
+    justify-content: flex-start;
+    align-items: center;     /* center each logo */
+  }
+
+  /* Optional: make logos smaller for mobile */
+  .logo-grid img {
+    width: 120px;
+    height: auto;
+  }
 }
