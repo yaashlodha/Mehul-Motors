@@ -425,7 +425,7 @@ nav ul li a:active {
 }
 
 .contact-btn:hover {
-  background: #7c3aed;
+  background: #aa86e8;
   color: white;
 }
 
@@ -594,7 +594,34 @@ nav ul li a:active {
       border-color: #febd69;
     }
 
-    /* Responsive for small screens */
+
+    /* DESKTOP / DEFAULT IMAGES */
+    .hero-slide.slide-1{
+      background-image: url("Resources/Banner imgs/Banner-1.webp");
+    }
+
+    .hero-slide.slide-2 {
+      background-image: url("Resources/Banner imgs/Banner-2.webp");
+    }
+
+    .hero-slide.slide-3 {
+      background-image: url("Resources/Banner imgs/Banner-3.webp");
+    }
+
+    /* MOBILE IMAGES */
+    @media (max-width: 768px) {
+      .hero-slide.slide-1 {
+        background-image: url("Resources/Banner imgs/Banner-1-mobile.webp");
+      }
+
+      .hero-slide.slide-2 {
+        background-image: url("Resources/Banner imgs/Banner-2-mobile.webp");
+      }
+
+      .hero-slide.slide-3 {
+        background-image: url("Resources/Banner imgs/Banner-3-mobile.webp");
+      }
+    }
     @media (max-width: 768px) {
       .hero-slider {
         height: 260px;
@@ -612,4 +639,3 @@ nav ul li a:active {
         height: 220px;
       }
     }
- 
