@@ -665,3 +665,11 @@
     }
 
   }
+
+  @media (max-width :1080) {
+    .desktop-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
