@@ -645,6 +645,7 @@
 
 
   /* DESKTOP / DEFAULT IMAGES */
+  /* DESKTOP IMAGES */
   .hero-slide.slide-1 {
     background-image: url("Resources/Banner imgs/Banner-1.png");
   }
@@ -653,9 +654,15 @@
     background-image: url("Resources/Banner imgs/Banner-2.png");
   }
 
+  /* Base styles for all hero slides */
+  .hero-slide {
+    background-size: cover;
 
+    background-repeat: no-repeat;
+    background-position: center 30%;
+  }
 
-  /* MOBILE IMAGES */
+  /* TABLET & MOBILE (768px and below) */
   @media (max-width: 768px) {
     .hero-slide.slide-1 {
       background-image: url("Resources/Banner imgs/Banner-1-Mobile.jpg");
@@ -665,27 +672,25 @@
       background-image: url("Resources/Banner imgs/Banner-2-Mobile.jpg");
     }
 
+    .hero-slide {
+      height: auto;
+      align-items: center;
+      min-height: 220px;
+      aspect-ratio: 3/2;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
 
-    @media (max-width: 768px) {
-
-      .hero-slide {
-        height: auto;
-        align-items: center;
-        min-height: 220px;
-        aspect-ratio: 3/2;
-        /* perfect mobile banner ratio */
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-      }
-
+  /* SMALL MOBILE (480px and below) */
+  @media (max-width: 480px) {
+    .hero-slider {
+      height: 220px;
     }
 
-
-    @media (max-width: 480px) {
-      .hero-slider {
-        height: 220px;
-      }
+    .hero-slide {
+      min-height: 220px;
     }
   }
 
